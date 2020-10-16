@@ -19,11 +19,7 @@ LoginState _onTelInputTextChanged(LoginState state, Action action) {
 }
 
 LoginState _onLoginTypeTransation(LoginState state, Action action) {
-  final LoginState newState = state.clone()
-    ..loginType =
-        state.loginType == LoginType.Tel ? LoginType.Account : LoginType.Tel
-    ..loginTypeTipText =
-        state.loginType == LoginType.Tel ? '账号密码登录' : '验证码登录/注册';
+  final LoginState newState = state.clone();
   return newState;
 }
 

@@ -8,7 +8,7 @@ Widget buildView(LoginState state, Dispatch dispatch, ViewService viewService) {
   return Scaffold(
     body: Container(
       padding: new EdgeInsets.all(16),
-      color: Colors.white,
+      color: Colors.grey[200],
       child: Column(
         children: [
           Container(
@@ -40,7 +40,7 @@ Widget buildView(LoginState state, Dispatch dispatch, ViewService viewService) {
                         border: InputBorder.none,
                         enabledBorder: UnderlineInputBorder(
                             borderSide:
-                                BorderSide(width: 1, color: Colors.grey[200])),
+                                BorderSide(width: 1, color: Colors.grey[400])),
                         hintText: state.loginType == LoginType.Tel
                             ? '请输入电话号码'
                             : '请输入账号'),
@@ -59,7 +59,7 @@ Widget buildView(LoginState state, Dispatch dispatch, ViewService viewService) {
                       hintText: '请输入密码',
                       enabledBorder: UnderlineInputBorder(
                           borderSide:
-                              BorderSide(width: 1, color: Colors.grey[200])),
+                              BorderSide(width: 1, color: Colors.grey[400])),
                     ),
                   ),
                 )
@@ -92,13 +92,13 @@ Widget buildView(LoginState state, Dispatch dispatch, ViewService viewService) {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   FlatButton(
-                      color: Colors.white,
-                      highlightColor: Colors.white,
-                      splashColor: Colors.white,
+                      color: Colors.grey[200],
+                      highlightColor: Colors.grey[200],
+                      splashColor: Colors.grey[200],
                       child: Text(
                         state.loginTypeTipText,
                         textAlign: TextAlign.left,
-                        style: TextStyle(backgroundColor: Colors.white),
+                        style: TextStyle(backgroundColor: Colors.grey[200]),
                       ),
                       onPressed: () {
                         dispatch(LoginActionCreator.onLoginTypeTransation());
