@@ -5,7 +5,7 @@ class MainState implements Cloneable<MainState> {
 
   @override
   MainState clone() {
-    return MainState();
+    return MainState()..currentIndex = currentIndex;
   }
 }
 

@@ -7,8 +7,24 @@ Reducer<LoginState> buildReducer() {
   return asReducer(
     <Object, Reducer<LoginState>>{
       LoginAction.onLoginAction: _onAction,
+      LoginAction.onTelInputTextChanged: _onTelInputTextChanged,
+      LoginAction.onLoginTypeTransation: _onLoginTypeTransation,
     },
   );
+}
+
+LoginState _onTelInputTextChanged(LoginState state, Action action) {
+  final LoginState newState = state.clone();
+  return newState;
+}
+
+LoginState _onLoginTypeTransation(LoginState state, Action action) {
+  final LoginState newState = state.clone()
+    ..loginType =
+        state.loginType == LoginType.Tel ? LoginType.Account : LoginType.Tel
+    ..loginTypeTipText =
+        state.loginType == LoginType.Tel ? '账号密码登录' : '验证码登录/注册';
+  return newState;
 }
 
 LoginState _onAction(LoginState state, Action action) {

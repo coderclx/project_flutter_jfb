@@ -11,5 +11,13 @@ Effect<LoginState> buildEffect() {
 }
 
 void _onAction(Action action, Context<LoginState> ctx) {
-  Navigator.of(ctx.context).pushReplacementNamed(RouteConfig.MAIN_PAGE_PATH);
+  switch (action.type) {
+    case LoginAction.onLoginAction:
+      {
+        Navigator.of(ctx.context)
+            .pushReplacementNamed(RouteConfig.MAIN_PAGE_PATH);
+      }
+      break;
+    default:
+  }
 }
