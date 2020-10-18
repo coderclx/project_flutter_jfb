@@ -10,13 +10,14 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
         elevation: 1,
         backgroundColor: Colors.grey[300],
         leadingWidth: 100,
+        title: Text(state.user.currentChild.name),
         leading: Container(
           width: 100,
           child: FlatButton(
               textColor: Colors.grey[300],
               splashColor: Colors.grey[300],
               child: Text(
-                "米粒",
+                '切换孩子',
                 textDirection: TextDirection.ltr,
                 style: TextStyle(color: Colors.black87),
               ),

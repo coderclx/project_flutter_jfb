@@ -8,14 +8,14 @@ Widget buildView(
   return Container(
     color: Colors.grey[50],
     alignment: Alignment.center,
-    child: state.isExistedChild
-        ? existedChildContentView()
+    child: state.currentChild != null
+        ? existedChildContentView(state)
         : noExistedChildContentView(),
   );
 }
 
-Widget existedChildContentView() {
-  return Text('已存在孩子');
+Widget existedChildContentView(HomeScreenState state) {
+  return Text('已存在孩子${state.currentChild.name}');
 }
 
 Widget noExistedChildContentView() {

@@ -22,6 +22,8 @@ environment:
 
 dependencies:
   fish_redux: ^0.3.4
+  json_serializable: ^2.0.0
+  build_runner: ^1.6.5 # 用于自动生成代码
   flutter:
     sdk: flutter
 
