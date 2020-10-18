@@ -10,20 +10,21 @@ class LoginState implements Cloneable<LoginState> {
   String loginTypeTipText;
   String inputTelText;
   String inputPwdText;
+  String title;
   bool enableLogin;
+
   @override
   LoginState clone() {
     LoginState loginState = new LoginState();
     loginState
+      ..loginType = loginType
+      ..loginTypeTipText = loginTypeTipText
+      ..inputPwdText = inputPwdText
+      ..title = title
+      ..enableLogin = enableLogin
       ..inputTelText = inputTelText
-      ..controller = controller
-      ..loginType =
-          loginType == LoginType.Tel ? LoginType.Account : LoginType.Tel
-      ..loginTypeTipText = loginType == LoginType.Tel ? '账号密码登录' : '验证码登录/注册';
+      ..controller = controller;
 
-    if (loginType == LoginType.Tel) {
-      enableLogin = inputTelText == null || inputTelText.isEmpty;
-    } else {}
     return loginState;
   }
 }
@@ -33,7 +34,7 @@ LoginState initState(Map<String, dynamic> args) {
   loginState
     ..loginType = LoginType.Tel
     ..loginTypeTipText = JFBStringConfig.LoginButtonTitleAccountTipStr
-    ..inputPwdText;
+    ..title = JFBStringConfig.LoginTextTitleTelTipStr;
 
   return loginState;
 }

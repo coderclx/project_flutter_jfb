@@ -9,31 +9,44 @@ import 'state.dart';
 Widget buildView(MainState state, Dispatch dispatch, ViewService viewService) {
   final List<BottomNavigationBarItem> bottomNavItems = [
     BottomNavigationBarItem(
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.green,
       icon: Icon(Icons.home),
       label: '首页',
     ),
     BottomNavigationBarItem(
       backgroundColor: Colors.green,
       icon: Icon(Icons.message),
-      label: '消息',
+      label: '我的',
     ),
   ];
+
+  Widget _bottomNavigationBarView(int index) {
+    switch (index) {
+      case 0:
+        return RouteConfig.ROUTES.buildPage(RouteConfig.HOME_PAGE_PATH, null);
+        break;
+      case 1:
+        return RouteConfig.ROUTES.buildPage(RouteConfig.PERSON_PAGE_PATH, null);
+        break;
+      default:
+    }
+  }
+
   return Scaffold(
-    appBar: AppBar(
-      title: Text('首页'),
-    ),
     bottomNavigationBar: BottomNavigationBar(
       items: bottomNavItems,
+      backgroundColor: Colors.grey[300],
+      fixedColor: Colors.green,
       currentIndex: state.currentIndex,
-      type: BottomNavigationBarType.shifting,
+      type: BottomNavigationBarType.fixed,
       onTap: (index) {
+        if (index == state.currentIndex) {
+          return;
+        }
         state.currentIndex = index;
         dispatch(MainActionCreator.onBottomNavPageChanged());
       },
     ),
-    body: state.currentIndex == 0
-        ? RouteConfig.ROUTES.buildPage(RouteConfig.HOME_PAGE_PATH, null)
-        : RouteConfig.ROUTES.buildPage(RouteConfig.PERSON_PAGE_PATH, null),
+    body: _bottomNavigationBarView(state.currentIndex),
   );
 }

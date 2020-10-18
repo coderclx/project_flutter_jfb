@@ -1,6 +1,7 @@
 class JFBStringConfig {
   //登录页面
   static final String LoginTextTitleTelTipStr = '登录/注册';
+  static final String LoginTextTitlePwdTipStr = '密码登录';
   static final String LoginButtonTitleGetAuthCodeStr = '获取验证码';
   static final String LoginButtonTitleLoginEnterStr = '进入积分宝';
   static final String LoginButtonTitleAuthCodeTipStr = '验证码登录/注册';

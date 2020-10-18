@@ -1,4 +1,5 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:project_flutter_jfb/biz/app/string.dart';
 
 import 'action.dart';
 import 'state.dart';
@@ -19,7 +20,15 @@ LoginState _onTelInputTextChanged(LoginState state, Action action) {
 }
 
 LoginState _onLoginTypeTransation(LoginState state, Action action) {
-  final LoginState newState = state.clone();
+  final LoginState newState = state.clone()
+    ..loginType = action.payload
+    ..loginTypeTipText = action.payload == LoginType.Account
+        ? JFBStringConfig.LoginButtonTitleAuthCodeTipStr
+        : JFBStringConfig.LoginButtonTitleAccountTipStr
+    ..title = action.payload == LoginType.Account
+        ? JFBStringConfig.LoginTextTitlePwdTipStr
+        : JFBStringConfig.LoginTextTitleTelTipStr;
+
   return newState;
 }
 

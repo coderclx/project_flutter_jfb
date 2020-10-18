@@ -10,5 +10,5 @@ class MainState implements Cloneable<MainState> {
 }
 
 MainState initState(Map<String, dynamic> args) {
-  return MainState();
+  return MainState()..currentIndex = 0;
 }
